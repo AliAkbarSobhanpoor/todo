@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
@@ -51,6 +50,7 @@ SIMPLE_JWT = {
 
 # Application definition
 
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -62,6 +62,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
 ]
+
+ROOT_URLCONF = "config.urls"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -89,8 +92,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = "backend.wsgi.application"
 
 
 # Database
