@@ -20,7 +20,8 @@ function Form({route, method}){
             const res = await api.post(route, {
                 username,
                 password,
-                ...(method !== "login" && { password2: passoword2 })            })
+                ...(method !== "login" && { password2: passoword2 })
+            })
             if (method === "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
