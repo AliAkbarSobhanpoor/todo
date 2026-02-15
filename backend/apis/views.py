@@ -6,34 +6,33 @@ from .serializers import UserSerializer, NoteSerializer
 from .models import Note
 
 
-class NoteListCreate(generics.ListCreateAPIView): # list and let create new one
+class NoteListCreate(generics.ListCreateAPIView):  # list and let create new one
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
-        user_note: Note = Note.objects.filter(author=user)    
+        user_note: Note = Note.objects.filter(author=user)
         return user_note
-    
+
     def perform_create(self, serializer):
         if serializer.is_valid():
             serializer.save(author=self.request.user)
         else:
             return serializer.errors
-        
+
+
 class NoteDelete(generics.DestroyAPIView):
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
-        user_note: Note = Note.objects.filter(author=user)    
+        user_note: Note = Note.objects.filter(author=user)
         return user_note
-    
+
+
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
-
-
-    
