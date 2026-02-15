@@ -111,9 +111,8 @@ textarea.form-input {
   margin-bottom: 15px;
 }
 
-/* Delete Button (Same Style as Form Button) */
 .delete-button {
-  width: 100%;
+  width: 48%;
   padding: 10px;
 
   background-color: #dc3545;
@@ -121,11 +120,29 @@ textarea.form-input {
 
   border: none;
   border-radius: 4px;
-
+  margin: 1%;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 
 .delete-button:hover {
   background-color: #b02a37;
+}
+
+.update-button {
+  width: 48%;
+  padding: 10px;
+
+  background-color: #75746f;
+  color: white;
+  margin: 1%;
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.update-button:hover {
+  background-color: #454441;
 }
